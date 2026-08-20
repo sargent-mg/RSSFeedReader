@@ -27,6 +27,9 @@ artifacts/
 *.snupkg
 packages/
 .fake/
+.dotnet-home/
+.dotnet-tmp/
+.nuget-packages/
 
 # Generated coverage and profiling output
 coverage/

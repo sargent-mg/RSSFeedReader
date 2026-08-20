@@ -15,11 +15,11 @@ description: "Executable task list for the Manage RSS Subscriptions MVP"
 
 **Purpose**: Create the cross-platform .NET solution and the planned backend, frontend, and test projects.
 
-- [ ] T001 Create `global.json` at the repository root pinning the current LTS .NET SDK selected during scaffolding.
-- [ ] T002 Create `RSSFeedReader.sln` at the repository root and add the backend, frontend, and test projects to it.
-- [ ] T003 [P] Create `backend/RSSFeedReader.Api/RSSFeedReader.Api.csproj` as an ASP.NET Core Web API project targeting the pinned SDK.
-- [ ] T004 [P] Create `frontend/RSSFeedReader.UI/RSSFeedReader.UI.csproj` as a Blazor WebAssembly project targeting the pinned SDK.
-- [ ] T005 [P] Create `tests/RSSFeedReader.Api.Tests/RSSFeedReader.Api.Tests.csproj` with xUnit and a project reference to `backend/RSSFeedReader.Api/RSSFeedReader.Api.csproj`.
+- [X] T001 Create `global.json` at the repository root pinning the current LTS .NET SDK selected during scaffolding.
+- [X] T002 Create `RSSFeedReader.sln` at the repository root and add the backend, frontend, and test projects to it.
+- [X] T003 [P] Create `backend/RSSFeedReader.Api/RSSFeedReader.Api.csproj` as an ASP.NET Core Web API project targeting the pinned SDK.
+- [X] T004 [P] Create `frontend/RSSFeedReader.UI/RSSFeedReader.UI.csproj` as a Blazor WebAssembly project targeting the pinned SDK.
+- [X] T005 [P] Create `tests/RSSFeedReader.Api.Tests/RSSFeedReader.Api.Tests.csproj` with xUnit and a project reference to `backend/RSSFeedReader.Api/RSSFeedReader.Api.csproj`.
 
 ---
 
@@ -29,11 +29,11 @@ description: "Executable task list for the Manage RSS Subscriptions MVP"
 
 **Checkpoint**: Foundation ready - the projects build, the backend and frontend launch on coordinated ports, and no template route conflicts remain.
 
-- [ ] T006 Configure backend startup, dependency injection, JSON settings, and CORS for the frontend origins in `backend/RSSFeedReader.Api/Program.cs`.
-- [ ] T007 [P] Configure backend local HTTP/HTTPS ports in `backend/RSSFeedReader.Api/Properties/launchSettings.json` using the documented backend defaults.
-- [ ] T008 Configure frontend startup to load the API base URL and register the API client HTTP service in `frontend/RSSFeedReader.UI/Program.cs`.
-- [ ] T009 [P] Configure the frontend API base URL and local HTTP/HTTPS ports in `frontend/RSSFeedReader.UI/wwwroot/appsettings.json` and `frontend/RSSFeedReader.UI/Properties/launchSettings.json`.
-- [ ] T010 [P] Remove template demo pages and duplicate root navigation entries from `frontend/RSSFeedReader.UI/Pages/` and `frontend/RSSFeedReader.UI/Layout/NavMenu.razor`, leaving one root route for the MVP page.
+- [X] T006 Configure backend startup, dependency injection, JSON settings, and CORS for the frontend origins in `backend/RSSFeedReader.Api/Program.cs`.
+- [X] T007 [P] Configure backend local HTTP/HTTPS ports in `backend/RSSFeedReader.Api/Properties/launchSettings.json` using the documented backend defaults.
+- [X] T008 Configure frontend startup to load the API base URL and register the API client HTTP service in `frontend/RSSFeedReader.UI/Program.cs`.
+- [X] T009 [P] Configure the frontend API base URL and local HTTP/HTTPS ports in `frontend/RSSFeedReader.UI/wwwroot/appsettings.json` and `frontend/RSSFeedReader.UI/Properties/launchSettings.json`.
+- [X] T010 [P] Remove template demo pages and duplicate root navigation entries from `frontend/RSSFeedReader.UI/Pages/` and `frontend/RSSFeedReader.UI/Layout/NavMenu.razor`, leaving one root route for the MVP page.
 
 ---
 
@@ -45,18 +45,18 @@ description: "Executable task list for the Manage RSS Subscriptions MVP"
 
 ### Tests for User Story 1
 
-- [ ] T011 [P] [US1] Add xUnit tests for empty-state listing, ordered additions, duplicate values, and restart-cleared in-memory state in `tests/RSSFeedReader.Api.Tests/SubscriptionBehaviorTests.cs`.
-- [ ] T012 [US1] Add API contract tests for `GET /api/subscriptions` and `POST /api/subscriptions`, including `201 Created` for non-empty input and `400 Bad Request` without list mutation for empty input, in `tests/RSSFeedReader.Api.Tests/SubscriptionBehaviorTests.cs`.
+- [X] T011 [P] [US1] Add xUnit tests for empty-state listing, ordered additions, duplicate values, and restart-cleared in-memory state in `tests/RSSFeedReader.Api.Tests/SubscriptionBehaviorTests.cs`.
+- [X] T012 [US1] Add API contract tests for `GET /api/subscriptions` and `POST /api/subscriptions`, including `201 Created` for non-empty input and `400 Bad Request` without list mutation for empty input, in `tests/RSSFeedReader.Api.Tests/SubscriptionBehaviorTests.cs`.
 
 ### Implementation for User Story 1
 
-- [ ] T013 [P] [US1] Create the backend `Subscription` DTO with the required `url` field in `backend/RSSFeedReader.Api/Models/Subscription.cs`.
-- [ ] T014 [P] [US1] Create the frontend subscription DTO matching the API contract in `frontend/RSSFeedReader.UI/Models/Subscription.cs`.
-- [ ] T015 [US1] Implement the ordered in-memory subscription store with empty/whitespace rejection and duplicate preservation in `backend/RSSFeedReader.Api/Services/InMemorySubscriptionStore.cs`.
-- [ ] T016 [US1] Implement `GET /api/subscriptions` and `POST /api/subscriptions` with the documented status codes and response shapes in `backend/RSSFeedReader.Api/Controllers/SubscriptionsController.cs`.
-- [ ] T017 [US1] Implement the frontend API client for listing and adding subscriptions in `frontend/RSSFeedReader.UI/Services/SubscriptionClient.cs`.
-- [ ] T018 [US1] Implement the subscriptions page with URL input, add action, empty-input no-op behavior, ordered list refresh, and plain-text rendering in `frontend/RSSFeedReader.UI/Pages/Subscriptions.razor`.
-- [ ] T019 [US1] Update the frontend navigation to expose the subscriptions page without adding another root route in `frontend/RSSFeedReader.UI/Layout/NavMenu.razor`.
+- [X] T013 [P] [US1] Create the backend `Subscription` DTO with the required `url` field in `backend/RSSFeedReader.Api/Models/Subscription.cs`.
+- [X] T014 [P] [US1] Create the frontend subscription DTO matching the API contract in `frontend/RSSFeedReader.UI/Models/Subscription.cs`.
+- [X] T015 [US1] Implement the ordered in-memory subscription store with empty/whitespace rejection and duplicate preservation in `backend/RSSFeedReader.Api/Services/InMemorySubscriptionStore.cs`.
+- [X] T016 [US1] Implement `GET /api/subscriptions` and `POST /api/subscriptions` with the documented status codes and response shapes in `backend/RSSFeedReader.Api/Controllers/SubscriptionsController.cs`.
+- [X] T017 [US1] Implement the frontend API client for listing and adding subscriptions in `frontend/RSSFeedReader.UI/Services/SubscriptionClient.cs`.
+- [X] T018 [US1] Implement the subscriptions page with URL input, add action, empty-input no-op behavior, ordered list refresh, and plain-text rendering in `frontend/RSSFeedReader.UI/Pages/Subscriptions.razor`.
+- [X] T019 [US1] Update the frontend navigation to expose the subscriptions page without adding another root route in `frontend/RSSFeedReader.UI/Layout/NavMenu.razor`.
 
 **Checkpoint**: User Story 1 is independently functional when the API tests pass and the browser flow in `quickstart.md` succeeds.
 
@@ -66,11 +66,11 @@ description: "Executable task list for the Manage RSS Subscriptions MVP"
 
 **Purpose**: Verify the complete MVP against its documented quality gates and keep the design artifacts aligned with the implementation.
 
-- [ ] T020 [P] Review `backend/RSSFeedReader.Api/Controllers/SubscriptionsController.cs` and `frontend/RSSFeedReader.UI/Pages/Subscriptions.razor` to confirm submitted values are treated as untrusted plain text and no feed URL is fetched or navigated to.
-- [ ] T021 [P] Verify backend/frontend port, API base URL, and CORS alignment in `backend/RSSFeedReader.Api/Properties/launchSettings.json`, `frontend/RSSFeedReader.UI/Properties/launchSettings.json`, `frontend/RSSFeedReader.UI/wwwroot/appsettings.json`, and `backend/RSSFeedReader.Api/Program.cs`.
-- [ ] T022 Run `dotnet test` from the repository root and resolve any failures covered by `tests/RSSFeedReader.Api.Tests/SubscriptionBehaviorTests.cs`.
-- [ ] T023 Run `dotnet build` from the repository root and confirm the backend, frontend, and test projects compile cleanly.
-- [ ] T024 Execute every browser and API scenario in `specs/001-manage-rss-subscriptions/quickstart.md` and record any implementation-specific status/body details in that guide.
+- [X] T020 [P] Review `backend/RSSFeedReader.Api/Controllers/SubscriptionsController.cs` and `frontend/RSSFeedReader.UI/Pages/Subscriptions.razor` to confirm submitted values are treated as untrusted plain text and no feed URL is fetched or navigated to.
+- [X] T021 [P] Verify backend/frontend port, API base URL, and CORS alignment in `backend/RSSFeedReader.Api/Properties/launchSettings.json`, `frontend/RSSFeedReader.UI/Properties/launchSettings.json`, `frontend/RSSFeedReader.UI/wwwroot/appsettings.json`, and `backend/RSSFeedReader.Api/Program.cs`.
+- [X] T022 Run `dotnet test` from the repository root and resolve any failures covered by `tests/RSSFeedReader.Api.Tests/SubscriptionBehaviorTests.cs`.
+- [X] T023 Run `dotnet build` from the repository root and confirm the backend, frontend, and test projects compile cleanly.
+- [X] T024 Execute every browser and API scenario in `specs/001-manage-rss-subscriptions/quickstart.md` and record any implementation-specific status/body details in that guide.
 
 ---
 
