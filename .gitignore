@@ -5,22 +5,34 @@
 
 # Visual Studio and VS Code
 .vs/
+.idea/
+.ionide/
 *.user
 *.userosscache
 *.suo
 *.rsuser
+*.DotSettings.user
+*.sln.iml
 .vscode/*
 !.vscode/extensions.json
 !.vscode/tasks.json
 !.vscode/launch.json
-!.vscode/settings.json
 
 # .NET build output
 [Bb]in/
 [Oo]bj/
 [Ll]og/
-TestResults/
+[Tt]estResults/
 artifacts/
+*.binlog
+*.trx
+
+# Local logs, diagnostics, and environment files
+*.log
+*.pid
+.env
+.env.*
+!.env.example
 
 # NuGet and local tooling caches
 *.nupkg
