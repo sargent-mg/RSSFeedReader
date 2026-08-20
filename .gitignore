@@ -1,0 +1,34 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Visual Studio and VS Code
+.vs/
+*.user
+*.userosscache
+*.suo
+*.rsuser
+.vscode/*
+!.vscode/extensions.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/settings.json
+
+# .NET build output
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+TestResults/
+artifacts/
+
+# NuGet and local tooling caches
+*.nupkg
+*.snupkg
+packages/
+.fake/
+
+# Generated coverage and profiling output
+coverage/
+*.coverage
+*.coveragexml

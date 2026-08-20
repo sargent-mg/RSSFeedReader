@@ -1,50 +1,71 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report
+Version change: 0.0.0 → 1.0.0
+Modified principles: Template placeholders → I. Secure-by-Default Delivery; II. Maintainable Architecture; III. Quality-First Delivery; IV. MVP-Driven Simplicity; V. Observable and Reviewable Changes
+Added sections: Project Constraints and Technology Standards; Development Workflow and Quality Gates; Governance
+Removed sections: Placeholder template content and example scaffolding
+Follow-up TODOs: none
+-->
+
+# RSS Feed Reader Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Secure-by-Default Delivery
+All application and configuration changes MUST treat untrusted input as unsafe until validated. Feed URLs, HTTP responses, and user-provided strings must be handled as data that can be malformed, malicious, or unexpected. The project MUST prefer explicit validation, safe defaults, and the smallest required data exposure. This is necessary because the app processes external content from the internet and the MVP still needs to remain resilient and safe as it grows.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Maintainable Architecture
+The solution MUST separate concerns across the ASP.NET Core API, Blazor UI, and supporting code so that individual features remain understandable and changeable. Backend responsibilities must stay focused on data flow and business logic, while the frontend remains focused on interaction and display. New code MUST be organized to keep the MVP simple, reduce duplication, and avoid architectural shortcuts that would force a rewrite later. This principle keeps the project aligned with the planned incremental evolution from MVP to extended features.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Quality-First Delivery
+All meaningful code changes MUST be validated with the smallest relevant checks before completion, including build verification and targeted tests when feasible. Features are not considered complete until the code compiles cleanly and the behavior is exercised against the project’s defined scope. This project MUST prefer correctness and clear, testable logic over convenience shortcuts, especially in configuration, routing, and user input handling.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. MVP-Driven Simplicity
+The team MUST deliver the smallest useful version of the RSS reader before adding complexity. For this project, the MVP focuses on adding a feed URL and displaying the subscription list in memory. Additional capabilities, including fetching, parsing, persistence, and background processing, MUST be deferred behind a clearly documented scope boundary. This prevents unnecessary implementation cost and keeps the project aligned with the stakeholder goals.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Observable and Reviewable Changes
+Every feature, configuration change, and debugging fix MUST be easy to understand, review, and support. Code and configuration must be readable, intentionally scoped, and backed by short, clear documentation when necessary. Any change that affects routes, ports, API contracts, or runtime behavior must be discoverable in the code and easy to verify during development. This supports maintainability and reduces the chance of regressions in a multi-platform local development environment.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Project Constraints and Technology Standards
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+The RSS Feed Reader project uses ASP.NET Core Web API for backend services and Blazor WebAssembly for the frontend. These choices are intentional and MUST remain consistent with the project’s goals of rapid MVP delivery and future extensibility.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+The application MUST:
+- Keep the MVP focused on subscription management and UI display
+- Use explicit API and UI boundaries between backend and frontend components
+- Treat configuration values such as local ports and API URLs as deliberate contract points that must be verified before testing
+- Prefer safe, simple code patterns over broad abstractions or speculative frameworks
+- Maintain compatibility with Windows, macOS, and Linux local development
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+The application MUST NOT:
+- Add feed fetching, parsing, persistence, or polling before the MVP scope is complete
+- Introduce ambiguous routing or duplicate root page routes in the frontend
+- Hardcode ports or host values in a way that makes local development fragile
+- Add complex content rendering or unsafe HTML processing before the project has a defined sanitization plan
+
+## Development Workflow and Quality Gates
+
+All development work MUST progress through deliberate, reviewable steps:
+1. Confirm the current MVP or enhancement scope and keep the change within that boundary.
+2. Implement the smallest change that satisfies the requirement.
+3. Validate the relevant build and runtime behavior before considering the task complete.
+4. Review configuration, routing, and UI contracts to ensure there are no hidden breakages.
+5. Keep the code understandable enough for future extension without rework.
+
+Before a feature is considered complete, the project MUST verify:
+- The backend and frontend run without startup or routing errors
+- Frontend configuration points to the correct backend base URL
+- CORS allows the local frontend origin when required
+- The user-facing behavior matches the defined MVP requirement and does not exceed the approved scope
+
+This project MUST treat operational correctness and code clarity as required quality gates, not optional polish.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution governs all project decisions related to implementation scope, code quality, and technical standards. It supersedes informal shortcuts that conflict with security, maintainability, or deliberate MVP scope.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+Amendments to this constitution require written documentation of the change, a clear rationale tied to project goals, and a review of the impact on security, maintainability, and code quality. Any change that broadens scope, alters architectural direction, or adds governance requirements MUST be recorded in the project memory and reflected in the version metadata.
+
+Compliance is reviewed by confirming that all work stays aligned with these principles, especially in scope control, validation, and system boundaries. Any deviation from the constitution MUST be intentional, justified, and explicitly documented.
+
+**Version**: 1.0.0 | **Ratified**: 2026-08-20 | **Last Amended**: 2026-08-20
